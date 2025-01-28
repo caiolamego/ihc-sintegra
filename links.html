@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .header {
+            background-color: #000033;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #FFA500;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease; /* Transição suave para a cor */
+        }
+
+        .nav a:hover {
+    color: #FFA500; /* Altere a cor do texto para laranja ao passar o mouse */
+}
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: #000033;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .news-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .news-card {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            max-width: 300px;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #000033;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 150px; /* Altura menor para encaixar mais cards */
+            object-fit: cover;
+        }
+
+        .news-card .content {
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .news-card h2 {
+            font-size: 1rem;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+
+        .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-container input {
+        width: 200px;
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .search-container input:focus {
+        border-color: #000033;
+        box-shadow: 0 0 8px rgba(0, 0, 51, 0.5);
+    }
+
+    .search-container input::placeholder {
+        color: #888;
+    }
+
+    .search-container button {
+        background-color: #000033;
+        color: #FFA500;
+        border: none;
+        border-radius: 20px;
+        padding: 0.4rem 0.8rem;
+        margin-left: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .search-container button:hover {
+        background-color: #FFA500;
+        color: #000033;
+        transform: scale(1.05);
+    }
+
+    .search-container button:active {
+        transform: scale(0.95);
+    }
+
+    .text {
+        font-size: 1.2rem;
+    }
+
+        @media (max-width: 768px) {
+            .news-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="home.html" class="logo">SINTEGRA</a>
+        <nav class="nav">
+            <a href="home.html">Home</a>
+            <a href="infos.html">Informações</a>
+            <a href="links.html">Links</a>
+            <a href="news.html">Notícias</a>
+            <a href="#">Ajuda e Sugestões</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Links</h1>
+        <div class="container">
+            <p class="text">Acesse o portal das Secretarias de Fazenda,  Finanças ou Tributação do estado que desejar!</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Estado">
+            </div>
+        </div>
+        <section class="news-section">
+            <div class="news-card">
+                <img src="bandeiras/AC.png" alt="Notícia 1">
+                <div class="content">
+                    <h2>Acre</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/AL.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Alagoas</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/AP.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Amapá</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/AM.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Amazonas</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/BA.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Bahia</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/CE.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Ceará</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/DF.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Distrito Federal</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/ES.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Espírito Santo</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/GO.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Goiás</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/MA.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Maranhão</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/MT.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Mato Grosso</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/MS.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Mato Grosso do Sul</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/MG.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Minas Gerais</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/PA.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Pará</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/PB.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Paraíba</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/PR.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Paraná</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/PE.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Pernambuco</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/PI.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Piauí</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/RJ.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Rio de Janeiro</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/RN.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Rio Grande do Norte</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/RS.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Rio Grande do Sul</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/RO.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Rondônia</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/RR.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Roraima</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/SC.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Santa Catarina</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/SP.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> São Paulo</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/SE.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Sergipe</h2>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="bandeiras/TO.png" alt="Notícia 1">
+                <div class="content">
+                    <h2> Tocantins</h2>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+    const searchInput = document.getElementById("searchInput");
+    const newsCards = document.querySelectorAll(".news-card");
+
+    searchInput.addEventListener("input", () => {
+        const searchQuery = searchInput.value.toLowerCase();
+        newsCards.forEach(card => {
+            const stateName = card.querySelector("h2").textContent.toLowerCase();
+            if (stateName.includes(searchQuery)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>
+

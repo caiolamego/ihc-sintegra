@@ -20,6 +20,10 @@
             align-items: center;
         }
 
+        .nav a:hover {
+    color: #FFA500; /* Altere a cor do texto para laranja ao passar o mouse */
+}
+
         .logo {
             color: #FFA500;
             font-size: 1.5rem;
@@ -36,6 +40,7 @@
             color: white;
             text-decoration: none;
             font-size: 1.1rem;
+            transition: color 0.3s ease; /* Transição suave para a cor */
         }
 
         .main-content {
@@ -251,6 +256,7 @@
             padding: 1rem;
             align-items: center;
             justify-content: center;
+            margin-top: 30px;
         }
 
         .news-card {
@@ -261,6 +267,7 @@
             overflow: hidden;
             align-items: center;
             justify-content: center;
+            max-width: 300px;
         }
 
         .news-card img {
@@ -357,10 +364,10 @@
     <header class="header">
         <a href="#" class="logo">SINTEGRA</a>
         <nav class="nav">
-            <a href="#">Home</a>
+            <a href="home.html">Home</a>
             <a href="infos.html">Informações</a>
-            <a href="#">Links</a>
-            <a href="#">Notícias</a>
+            <a href="links.html">Links</a>
+            <a href="news.html">Notícias</a>
             <a href="#">Ajuda e Sugestões</a>
         </nav>
     </header>
@@ -436,7 +443,7 @@
 
         <section class="map-section">
             <div class="brazil-map-container">
-                <img id="mapImage" src="mapa.png" alt="Mapa do Brasil">
+                <img id="mapImage" src="assets/mapa.png" alt="Mapa do Brasil">
                 <div class="zoom-controls">
                     <button id="zoomIn">+</button>
                     <button id="zoomOut">-</button>
@@ -448,19 +455,19 @@
         <h2 class="news-title-section">Veja as notícias mais recentes!</h2>
         <div class="news-carousel">
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cartão CNPJ">
+                <img src="assets/sintegra.png" alt="Cartão CNPJ">
                 <div class="overlay">
                     <h3 class="news-title">Cartão CNPJ</h3>
                 </div>
             </div>
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cartão CPF">
+                <img src="assets/CONFAZ.jpg" alt="Cartão CPF">
                 <div class="overlay">
                     <h3 class="news-title">Cartão CPF</h3>
                 </div>
             </div>
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Assembleia">
+                <img src="assets/consulta.webp" alt="Assembleia">
                 <div class="overlay">
                     <h3 class="news-title">Assembleia</h3>
                 </div>

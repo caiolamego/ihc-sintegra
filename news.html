@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .header {
+            background-color: #000033;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #FFA500;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease; /* Transição suave para a cor */
+        }
+
+        .nav a:hover {
+    color: #FFA500; /* Altere a cor do texto para laranja ao passar o mouse */
+}
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: #000033;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .news-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #000033;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-card .content {
+            padding: 1rem;
+        }
+
+        .news-card h2 {
+            color: #000033;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .news-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="home.html" class="logo">SINTEGRA</a>
+        <nav class="nav">
+            <a href="home.html">Home</a>
+            <a href="infos.html">Informações</a>
+            <a href="links.html">Links</a>
+            <a href="news.html">Notícias</a>
+            <a href="#">Ajuda e Sugestões</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Últimas Notícias</h1>
+        <section class="news-section">
+            <div class="news-card">
+                <img src="assets/sintegra.png" alt="Notícia 1">
+                <div class="content">
+                    <h2>Implementação do SINTEGRA avança no Brasil</h2>
+                    <p>Administrações tributárias reportam maior eficiência com novos sistemas integrados.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/empresa.jpg" alt="Notícia 2">
+                <div class="content">
+                    <h2>Parceria com empresas acelera modernização</h2>
+                    <p>Governo firma convênios para ampliar adoção de tecnologias inovadoras no setor fiscal.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/consulta.webp" alt="Notícia 3">
+                <div class="content">
+                    <h2>Nova funcionalidade no sistema SINTEGRA</h2>
+                    <p>Empresas agora podem realizar consultas em tempo real, agilizando processos internos.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/CONFAZ.jpg" alt="Notícia 4">
+                <div class="content">
+                    <h2>Confaz lança portal exclusivo para contribuintes</h2>
+                    <p>Ferramenta permite maior transparência e interação entre governo e empresas.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/treinamento.jpeg" alt="Notícia 5">
+                <div class="content">
+                    <h2>Treinamento para gestores em sistemas fiscais</h2>
+                    <p>Capacitação oferecida a servidores públicos promete otimizar processos administrativos.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/startup.png" alt="Notícia 6">
+                <div class="content">
+                    <h2>Pequenas empresas se beneficiam do SINTEGRA</h2>
+                    <p>Simplificação de obrigações fiscais reduz custos e facilita regularização tributária.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/nota.jpg" alt="Notícia 7">
+                <div class="content">
+                    <h2>Evento aborda os desafios da digitalização fiscal</h2>
+                    <p>Especialistas discutem os principais obstáculos para a modernização das administrações.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/brasil.webp" alt="Notícia 8">
+                <div class="content">
+                    <h2>Sistema SINTEGRA será ampliado em 2025</h2>
+                    <p>Novas funcionalidades previstas para o próximo ano prometem maior integração nacional.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="assets/automacao.jpeg" alt="Notícia 9">
+                <div class="content">
+                    <h2>Estudo revela impactos econômicos da digitalização fiscal</h2>
+                    <p>Relatório mostra como a automação tributária contribui para a arrecadação e o desenvolvimento.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
