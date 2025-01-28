@@ -520,11 +520,54 @@
             document.querySelector('#search-input').value = '';
             document.querySelector('#state-select').selectedIndex = 0;
             document.querySelector('#cfdf').checked = true;
+            document.querySelector('.result-area').innerHTML = '<p>Resultado da sua busca aparecerá aqui...</p>';
             updateConsultationStyles();
-            statePaths.forEach(path => {
-                path.style.fill = '#000033';
-            });
         });
+
+    document.querySelector('.btn-primary').addEventListener('click', function() {
+        const state = document.querySelector('#state-select').value;
+        const searchInput = document.querySelector('#search-input').value;
+        const consultationType = document.querySelector('input[name="consulta"]:checked').value;
+
+        // Dados a serem exibidos
+        const resultData = `
+            <strong>CNPJ:</strong> 05.801.944/0005-05<br>
+            <strong>Inscrição Estadual:</strong> 10.504.944-1<br>
+            <strong>Cadastro Atualizado em:</strong> 29/03/2023 01:01:33<br>
+            <strong>Nome Empresarial:</strong> EMPRESA TESTE<br>
+            <strong>Contribuinte?</strong> Sim<br>
+            <strong>Endereço Estabelecimento:</strong> BRASILIA DF, CEP: 74.533-000<br>
+            <strong>Atividade Econômica:</strong><br>
+            <em>Atividade Principal</em><br>
+            4530705 - Comércio a varejo de pneumáticos e câmaras-de-ar<br>
+            <em>Atividade Secundária</em><br>
+            4530703 - Comércio a varejo de peças e acessórios novos para veículos automotores<br>
+            4520004 - Serviços de alinhamento e balanceamento de veículos automotores<br>
+            <strong>Informações Complementares:</strong><br>
+            Unidade Auxiliar: UNIDADE PRODUTIVA<br>
+            Condição de Uso: ---<br>
+            Data Final de Contrato: ---<br>
+            Regime de Apuração: Normal<br>
+            Situação Cadastral Vigente: Ativo - HABILITADO<br>
+            Data desta Situação Cadastral: 01/07/2011<br>
+            Data de Cadastramento: 01/07/2011<br>
+            Operações com NF-E: Habilitado<br>
+            <strong>Data da Consulta:</strong> 27/01/2025 10:52:45<br>
+        `;
+
+        // Exibir resultado na área de resultado
+        const resultArea = document.querySelector('.result-area');
+        if (state && searchInput && consultationType) {
+            resultArea.innerHTML = resultData;
+        } else {
+            resultArea.innerHTML = `<p style="color:red;">Por favor, preencha todos os campos para realizar a busca.</p>`;
+        }
+    });
+
+    mapImage.addEventListener('click', () => {
+    const stateSelect = document.querySelector('#state-select');
+    stateSelect.value = 'DF';
+});
     </script>
 </body>
 </html>
