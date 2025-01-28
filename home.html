@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINTEGRA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .header {
+            background-color: #000033;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #FFA500;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .search-section {
+            flex: 1;
+        }
+
+        .map-section {
+            flex: 1;
+            position: relative;
+        }
+
+        h1 {
+            color: #000033;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #000033;
+            font-weight: 500;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .consultation-types {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .consultation-type {
+            position: relative;
+            border: 2px solid #000033;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .consultation-type input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .consultation-type label {
+            cursor: pointer;
+            font-weight: bold;
+            color: #000033;
+            margin: 0;
+        }
+
+        .consultation-type:hover {
+            background-color: #f0f0f0;
+        }
+
+        .consultation-type input:checked + label {
+            color: white;
+        }
+
+        .consultation-type input:checked + label::before {
+            background-color: #000033;
+        }
+
+        .consultation-type input:checked + label + .consultation-type {
+            background-color: #000033;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #000033;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffa600;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        .result-area {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            color: #666;
+        }
+
+        .brazil-map-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;            /* This centers the content inside */
+            justify-content: center;  /* Horizontally center */
+            align-items: center;      /* Vertically center */
+        }
+
+        #mapImage {
+            max-width: 100%;          /* Ensure the image scales properly */
+            height: auto;             /* Maintain aspect ratio */
+        }
+
+        .brazil-map {
+            width: 100%;
+            height: 100%;
+            cursor: move;
+        }
+
+        .brazil-map path {
+            fill: #000033;
+            stroke: white;
+            stroke-width: 1;
+            transition: fill 0.3s ease;
+        }
+
+        .brazil-map path:hover {
+            fill: #000066;
+        }
+
+        .map-controls {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .map-control {
+            background: white;
+            border: 1px solid #000033;
+            border-radius: 4px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-control:hover {
+            background: #000033;
+            color: white;
+        }
+
+        .news-section {
+            background-color: #000033;
+            padding: 3rem 2rem;
+            color: white;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .news-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .news-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news-card {
+            position: relative;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .news-card:hover img {
+            transform: scale(1.1); /* Zoom suave ao passar o mouse */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0) 70%);
+            opacity: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 10px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .news-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .news-title {
+            color: #000033;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .news-title-section {
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        .image-container {
+            position: relative;
+            width: 30%;
+            overflow: hidden;
+            border-radius: 8px; 
+        }
+
+        .image-container img {
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .zoom-controls button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+    .zoom-controls button:hover {
+        background-color: #0056b3;
+    }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .consultation-types {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">SINTEGRA</a>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Informações</a>
+            <a href="#">Links</a>
+            <a href="#">Notícias</a>
+            <a href="#">Ajuda e Sugestões</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="search-section">
+            <h1>Realize sua consulta diretamente no Sintegra!</h1>
+            
+            <div class="form-group">
+                <label>Selecione o estado:</label>
+                <select id="state-select">
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Selecione o tipo de consulta:</label>
+                <div class="consultation-types">
+                    <div class="consultation-type" id="cfdf-type">
+                        <input type="radio" name="consulta" value="CF/DF" id="cfdf" checked>
+                        <label for="cfdf">CF/DF</label>
+                    </div>
+                    <div class="consultation-type" id="cpf-type">
+                        <input type="radio" name="consulta" value="CPF" id="cpf">
+                        <label for="cpf">CPF</label>
+                    </div>
+                    <div class="consultation-type" id="cnpj-type">
+                        <input type="radio" name="consulta" value="CNPJ" id="cnpj">
+                        <label for="cnpj">CNPJ</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" placeholder="Digite aqui..." id="search-input">
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-primary">Buscar</button>
+                <button class="btn btn-secondary">Limpar</button>
+            </div>
+
+            <div class="result-area">
+                <p>Resultado da sua busca aparecerá aqui...</p>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="brazil-map-container">
+                <img id="mapImage" src="mapa.png" alt="Mapa do Brasil">
+                <div class="zoom-controls">
+                    <button id="zoomIn">+</button>
+                    <button id="zoomOut">-</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="news-section">
+        <h2 class="news-title-section">Veja as notícias mais recentes!</h2>
+        <div class="news-carousel">
+            <div class="news-card">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cartão CNPJ">
+                <div class="overlay">
+                    <h3 class="news-title">Cartão CNPJ</h3>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cartão CPF">
+                <div class="overlay">
+                    <h3 class="news-title">Cartão CPF</h3>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Assembleia">
+                <div class="overlay">
+                    <h3 class="news-title">Assembleia</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const mapImage = document.getElementById('mapImage');
+        const zoomInButton = document.getElementById('zoomIn');
+        const zoomOutButton = document.getElementById('zoomOut');
+
+        let scale = 1;
+        const scaleStep = 0.1;
+
+        zoomInButton.addEventListener('click', () => {
+            scale += scaleStep;
+            mapImage.style.transform = `scale(${scale})`;
+        });
+
+        zoomOutButton.addEventListener('click', () => {
+            if (scale > scaleStep) {
+                scale -= scaleStep;
+                mapImage.style.transform = `scale(${scale})`;
+            }
+        });
+
+        // Consultation type selection
+        const consultationTypes = document.querySelectorAll('.consultation-type');
+        
+        consultationTypes.forEach(type => {
+            type.addEventListener('click', () => {
+                const radio = type.querySelector('input[type="radio"]');
+                radio.checked = true;
+                updateConsultationStyles();
+            });
+        });
+
+        function updateConsultationStyles() {
+            consultationTypes.forEach(type => {
+                const radio = type.querySelector('input[type="radio"]');
+                if (radio.checked) {
+                    type.style.backgroundColor = '#000033';
+                    type.querySelector('label').style.color = 'white';
+                } else {
+                    type.style.backgroundColor = 'transparent';
+                    type.querySelector('label').style.color = '#000033';
+                }
+            });
+        }
+
+        // Initialize consultation type styles
+        updateConsultationStyles();
+
+        // Clear button functionality
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            document.querySelector('#search-input').value = '';
+            document.querySelector('#state-select').selectedIndex = 0;
+            document.querySelector('#cfdf').checked = true;
+            updateConsultationStyles();
+            statePaths.forEach(path => {
+                path.style.fill = '#000033';
+            });
+        });
+    </script>
+</body>
+</html>
