@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações Gerais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .header {
+            background-color: #000033;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #FFA500;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: #000033;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .info-card:hover {
+            background-color: #f0f0f0;
+            border-color: #000033;
+        }
+
+        .info-card h2 {
+            color: #000033;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .full-content {
+            display: none;
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .info-card.expanded .full-content {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .info-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="home.html" class="logo">SINTEGRA</a>
+        <nav class="nav">
+            <a href="home.html">Home</a>
+            <a href="#">Informações</a>
+            <a href="#">Links</a>
+            <a href="#">Notícias</a>
+            <a href="#">Ajuda e Sugestões</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Informações Gerais</h1>
+        <section class="info-section">
+            <div class="info-card" onclick="toggleCard(this)">
+                <h2>Quem Somos? Objetivo e Administração</h2>
+                <p>"Saiba Mais sobre Nosso Objetivo Institucional e Estrutura Administrativa no Setor Público"</p>
+                <div class="full-content">
+                    <p>O SINTEGRA consiste num conjunto de procedimentos administrativos e de sistemas computacionais de apoio que está sendo adotado simultaneamente pelas Administrações Tributárias das diversas Unidades da Federação. Do lado dos contribuintes, o propósito é o de simplificar e homogeneizar as obrigações de fornecimento de informações relativas às operações de compra, venda e prestação de serviços. Do lado dos fiscos estaduais, o objetivo é o de propiciar maior agilidade e confiabilidade ao tratamento das informações recebidas dos contribuintes e à troca de dados entre as diversas UFs.</p>
+                    <p>O SINTEGRA foi planejado e administrado por um Grupo Gestor, constituído pelo convênio ICMS 78/97, aprovado pelo Confaz, e formado por representantes de todas as Unidades da Federação e da UCP/PNAFE/MF. Este grupo foi sucedido em outubro de 2000 por um grupo de trabalho da Cotepe/Confaz - GT-15-Sintegra.</p>
+                </div>
+            </div>
+            <div class="info-card" onclick="toggleCard(this)">
+                <h2>Histórico do Sintegra</h2>
+                <p>"Saiba Mais sobre o Histórico do Sintegra: Sua Evolução e Importância no Setor Público".</p>
+                <div class="full-content">
+                    <p>O estabelecimento do SINTEGRA foi feito com a intenção de dar consistência e propiciar economias de escala a diversas iniciativas de modernização dos sistemas tributários estaduais que constituem o objeto do PNAFE – Programa Nacional de Apoio à Administração Fiscal para os Estados Brasileiros. O PNAFE, financiado com recursos do BID e dos estados, visa contribuir para o equilíbrio financeiro das unidades federadas através de medidas de aperfeiçoamento de suas máquinas arrecadadoras e de seus mecanismos de controle das despesas. O programa tem financiado diversos processos de melhoria das administrações tributárias estaduais, através da qualificação de pessoal, aperfeiçoamento da infraestrutura computacional, consultorias para o planejamento, etc.</p>
+                    <p>Os projetos variam de uma UF para outra, dadas as necessidades locais diferenciadas. O fato porém de que todas as UFs dependem fortemente da arrecadação do ICMS, que tem características semelhantes de uma UF para outra, e de que uma parcela significativa do mesmo provem de operações de compra e venda interestaduais, que caem num terreno de jurisdição conjunta, caracterizou a necessidade de promover iniciativas igualmente conjuntas de aperfeiçoamento do controle exercido sobre as operações interestaduais de compra e venda, nascendo assim o SINTEGRA.</p>
+                </div>
+            </div>
+            <div class="info-card" onclick="toggleCard(this)">
+                <h2>Fluxo de Informações</h2>
+                <p>O fluxo de informações entre os contribuintes e os Estados: melhorias alcançadas</p>
+                <div class="full-content">
+                    <p>De acordo com o estabelecido nos Convênios ICMS 57/95 e 20/00, os contribuintes usuários de Processamento Eletrônico de Dados estão obrigados a fornecer às administrações tributárias estaduais, em meio digital, os dados relativos às operações de compra e venda que tenham praticado. Estas informações padeciam de tratamento adequado por parte dos fiscos estaduais devido à grande incidência de erros nos arquivos recebidos, à ausência de sistemas de computador projetados para o tratamento destes bem como à dificuldade de transmissão. Estas restrições foram consideradas na concepção do SINTEGRA.</p>
+                    <p>No que tange à melhoria da qualidade das informações recebidas, desenvolveu-se um Sistema de Acesso aos Cadastros Estaduais e um Validador para verificar a consistência dos dados nos arquivos elaborados de acordo com o leiaute disposto na legislação para os usuários de sistemas eletrônicos de processamento de dados. Os mecanismos para tratamento das informações entregues são desenvolvidos com soluções comuns aos Fiscos adequado à realidade tecnológica e administrativa de cada unidade federada. As Secretarias de Fazenda que já possuem a totalidade de seus contribuintes entregando arquivos para seus sistemas distribuem as informações estaduais para suas congêneres . Aquelas que ainda não impuseram a obrigação para a totalidade de seus contribuintes não os dispensaram do envio direto dos dados das operações interestaduais para os respectivos Fiscos das unidades federadas.</p>
+                </div>
+            </div>
+            <div class="info-card" onclick="toggleCard(this)">
+                <h2>Sistema de Acesso aos Cadastros Estaduais</h2>
+                <p>O fluxo de informações entre os contribuintes e os Estados: melhorias alcançadas</p>
+                <div class="full-content">
+                    <p>A primeira iniciativa levada adiante pelo Grupo Gestor do SINTEGRA foi a de facilitar ao público o acesso aos cadastros de contribuintes existentes nas diversas Unidades da Federação. Através da padronização de mecanismos de acesso e da utilização da Internet, implementou-se o Sistema de Acesso a Cadastros Estaduais que já se encontra plenamente funcional em todas as UFs. O sistema permite confirmar o nome, o endereço, a atividade econômica, os números de Inscrição Estadual e do CNPJ e a situação cadastral dos contribuintes de ICMS, visando facilitar às empresas a utilização de dados corretos relativos às outras firmas com as quais fazem operações de compra, venda e prestação de serviços, mesmo que as mesmas estejam situadas em outras UFs.</p>
+                    <p>O sistema foi implantado de uma forma totalmente descentralizada, sendo que o cadastro de cada UF reside na mesma o que permite manutenção e atualização dos dados com maior eficiência. Além dos contribuintes, a consulta cadastral é intensamente utilizada pelas administrações tributárias para conferir os dados informados pelos contribuintes das outras UF, por outros órgãos públicos, hospitais, escolas, etc, com o objetivo de checar dados cadastrais dos estabelecimentos envolvidos nas operações. É importante destacar que a consulta cadastral disponibilizada na internet não pode ser usada como objeto da confirmação da existência de fato e de direito e da respectiva regularidade cadastral do contribuinte face à natureza passiva do Fisco neste relacionamento, isto é, o Fisco depende da declaração cadastral efetuada pelo contribuinte. Por exemplo, o estabelecimento que encerra suas atividades e não comunica o fato ao Fisco, até fazê-lo ou o Fisco detectar, continuará com sua inscrição estadual ativa no cadastro.</p>
+                </div>
+            </div>
+            <div class="info-card" onclick="toggleCard(this)">
+                <h2>Mudanças Legislativas e Regimentais</h2>
+                <p>O fluxo de informações entre os contribuintes e os Estados: melhorias alcançadas</p>
+                <div class="full-content">
+                    <p>Para respaldar o funcionamento dos sistemas e procedimentos estabelecidos pelo SINTEGRA é necessário um conjunto de mudanças no arcabouço legal que regula as transferências de informação relativas às operações interestaduais entre as administrações tributárias estaduais, e entre as mesmas e os contribuintes. Estão sendo propostos ao Confaz alguns convênios para alterar a rotina de envio de informações dos contribuintes aos fiscos estaduais, para estender a obrigatoriedade de fornecimento dessas informações a alguns tipos de contribuintes que hoje não são solicitados a fornecê-las e para regular o envio de dados entre as Unidades da Federação. Foi decidido ainda a criação de um grupo de trabalho da Cotepe, que se encarregará da administração do sistema após sua implementação.</p>
+                    <p>Além das alterações no âmbito do Confaz, as diversas UFs deverão promover mudanças nas normas estaduais, buscando obter uma homogeneidade nas obrigações acessórias a serem exigidas dos contribuintes, incluindo a uniformidade nas penalidades a serem impostas pelo não cumprimento das mesmas.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleCard(card) {
+            card.classList.toggle('expanded');
+        }
+    </script>
+</body>
+
+</html>
