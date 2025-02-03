@@ -43,6 +43,29 @@
       transition: color 0.3s ease;
     }
 
+    .accessibility-buttons {
+      position: absolute;
+      top: 70px; /* Posiciona abaixo da barra de navegação */
+      right: 20px;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .accessibility-buttons button {
+      background-color: #FFA500;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .accessibility-buttons button:hover {
+      background-color: #cc8400;
+    }
+
     .main-content {
       max-width: 1200px;
       margin: 2rem auto;
@@ -208,7 +231,6 @@
       fill: #000066;
     }
 
-    /* Estilos dos botões de zoom - Igual aos da segunda página */
     .zoom-controls {
       position: absolute;
       top: 10px;
@@ -347,6 +369,87 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .accessibility-buttons {
+        top: 60px; /* Ajuste para telas menores */
+        right: 10px;
+      }
+    }
+
+    /* Acessibilidade */
+    .large-text {
+      font-size: 1.5rem;
+    }
+
+    .high-contrast {
+      background-color: black;
+      color: white;
+    }
+
+    .high-contrast .header {
+      background-color: black;
+    }
+
+    .high-contrast .nav a {
+      color: yellow;
+    }
+
+    .high-contrast .logo {
+      color: yellow;
+    }
+
+    .high-contrast .consultation-type {
+      border-color: yellow;
+    }
+
+    .high-contrast .consultation-type label {
+      color: yellow;
+    }
+
+    .high-contrast .btn-primary {
+      background-color: yellow;
+      color: black;
+    }
+
+    .high-contrast .btn-secondary {
+      background-color: yellow;
+      color: black;
+    }
+
+    .high-contrast .result-area {
+      background-color: #333;
+      color: white;
+    }
+
+    .high-contrast .news-section {
+      background-color: black;
+    }
+
+    .high-contrast .news-title-section {
+      color: yellow;
+    }
+
+    .high-contrast .registration-link {
+      color: yellow;
+      border-color: yellow;
+    }
+
+    .high-contrast .registration-link:hover {
+      background-color: yellow;
+      color: black;
+    }
+
+    .high-contrast h1,
+    .high-contrast label,
+    .high-contrast .consultation-type label {
+      color: yellow;
+    }
+
+    .high-contrast select,
+    .high-contrast input[type="text"] {
+      background-color: #333;
+      color: white;
+      border-color: yellow;
     }
   </style>
 </head>
@@ -361,6 +464,12 @@
       <a href="ajuda_sugestoes.html">Ajuda e Sugestões</a>
     </nav>
   </header>
+
+  <div class="accessibility-buttons">
+    <button id="increaseFont">A+</button>
+    <button id="decreaseFont">A-</button>
+    <button id="toggleContrast">Alto Contraste</button>
+  </div>
 
   <main class="main-content">
     <section class="search-section">
@@ -531,8 +640,8 @@
       const searchInput = document.querySelector('#search-input').value;
       const consultationType = document.querySelector('input[name="consulta"]:checked').value;
 
-      const resultData = `
-        <strong>CNPJ:</strong> 05.801.944/0005-05<br>
+      const resultData = 
+        `<strong>CNPJ:</strong> 05.801.944/0005-05<br>
         <strong>Inscrição Estadual:</strong> 10.504.944-1<br>
         <strong>Cadastro Atualizado em:</strong> 29/03/2023 01:01:33<br>
         <strong>Nome Empresarial:</strong> EMPRESA TESTE<br>
@@ -553,8 +662,7 @@
         Data desta Situação Cadastral: 01/07/2011<br>
         Data de Cadastramento: 01/07/2011<br>
         Operações com NF-E: Habilitado<br>
-        <strong>Data da Consulta:</strong> 27/01/2025 10:52:45<br>
-      `;
+        <strong>Data da Consulta:</strong> 27/01/2025 10:52:45<br>`;
 
       const resultArea = document.querySelector('.result-area');
       if (state && searchInput && consultationType) {
@@ -568,6 +676,23 @@
     mapImage.addEventListener('click', () => {
       const stateSelect = document.querySelector('#state-select');
       stateSelect.value = 'DF';
+    });
+
+    // Acessibilidade
+    const increaseFontButton = document.getElementById('increaseFont');
+    const decreaseFontButton = document.getElementById('decreaseFont');
+    const toggleContrastButton = document.getElementById('toggleContrast');
+
+    increaseFontButton.addEventListener('click', () => {
+      document.body.classList.toggle('large-text');
+    });
+
+    decreaseFontButton.addEventListener('click', () => {
+      document.body.classList.remove('large-text');
+    });
+
+    toggleContrastButton.addEventListener('click', () => {
+      document.body.classList.toggle('high-contrast');
     });
   </script>
 </body>
